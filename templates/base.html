@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Management</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            padding-top: 56px; /* Space for the fixed header */
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .navbar-nav .nav-item:hover {
+            background-color: #495057;
+        }
+        footer {
+            background-color: #343a40;
+        }
+        footer p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Grocery Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Home Link -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <!-- Manage Products Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('products') }}">Manage Products</a>
+                    </li>
+                    <!-- Manage Suppliers Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('suppliers') }}">Manage Suppliers</a>
+                    </li>
+                    <!-- Stock Overview Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('stock_overview') }}">Stock Overview</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-white p-3 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Grocery Management, All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

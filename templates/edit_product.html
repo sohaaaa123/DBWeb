@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Product</h2>
+    <form method="POST" action="{{ url_for('edit_product', product_id=product.id) }}" class="form-group border p-4 rounded shadow-sm">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter product name" value="{{ product.name }}" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="price">Price ($)</label>
+                <input type="number" step="0.01" name="price" id="price" class="form-control" placeholder="Enter price" value="{{ product.price }}" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="category">Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value="dairy" {% if product.category == 'dairy' %}selected{% endif %}>Dairy</option>
+                    <option value="fruits" {% if product.category == 'fruits' %}selected{% endif %}>Fruits</option>
+                    <option value="vegetables" {% if product.category == 'vegetables' %}selected{% endif %}>Vegetables</option>
+                    <option value="seafood" {% if product.category == 'seafood' %}selected{% endif %}>Seafood</option>
+                    <option value="snacks" {% if product.category == 'snacks' %}selected{% endif %}>Snacks</option>
+                    <option value="produce" {% if product.category == 'produce' %}selected{% endif %}>Produce</option>
+                    <option value="frozen foods" {% if product.category == 'frozen foods' %}selected{% endif %}>Frozen Foods</option>
+                    <option value="beverages" {% if product.category == 'beverages' %}selected{% endif %}>Beverages</option>
+                    <option value="bakery" {% if product.category == 'bakery' %}selected{% endif %}>Bakery</option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Enter quantity" value="{{ product.quantity }}" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Update Product</button>
+    </form>
+</div>
+{% endblock %}

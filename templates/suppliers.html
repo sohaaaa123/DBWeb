@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Page Title -->
+  <h2>Manage Suppliers</h2>
+  
+  <!-- Add Supplier Form -->
+  <div class="container">
+    <h3>Add New Supplier</h3>
+    <form method="POST">
+      <div class="form-group">
+        <label for="name">Supplier Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact Person</label>
+        <input type="text" class="form-control" id="contact" name="contact" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" name="phone" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Supplier List -->
+  <div class="container mt-5">
+    <h3>Supplier List</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Contact Person</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for supplier in suppliers %}
+          <tr>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.contact }}</td>
+            <td>{{ supplier.phone }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
+
