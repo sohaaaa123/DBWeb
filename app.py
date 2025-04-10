@@ -1,5 +1,9 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
+from create_db import create_database
+from check_db import check_database
+
+
 
 app = Flask(__name__)
 
